@@ -37,3 +37,6 @@ The content mentions placing this code in your `_config.yml` file. This is incor
 * GitHub Pages documentation: [https://docs.github.com/pages](https://docs.github.com/pages)
 
 I hope this clarifies the workflow and its placement within your Jekyll project. Feel free to ask if you have any further questions!
+## tutorial 
+[
+](https://jekyllrb.com/tutorials/home/#:~:text=To%20add%20your%20tutorial%3A%201%20Fork%20the%20Jekyll,regular%20git%20workflow%20to%20submit%20the%20pull%20request)https://jekyllrb.com/tutorials/home/#:~:text=To%20add%20your%20tutorial%3A%201%20Fork%20the%20Jekyll,regular%20git%20workflow%20to%20submit%20the%20pull%20request
