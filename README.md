@@ -57,4 +57,8 @@ For any questions or assistance with your proposal submission, please reach out 
 
 Your contributions are what make Pero's Academy a vibrant and dynamic place for learning. We're excited to see your innovative course ideas and how they will enrich our academic offerings. Together, we can create an unparalleled learning experience for our students!
 
+## Submit Course Proposal
+
+Below Is The Link To Course Proposal 
+
 Thank you for being an integral part of Pero's Academy. Let's shape the future of education, one course at a time! 🌟
