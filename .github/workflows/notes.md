@@ -40,3 +40,76 @@ I hope this clarifies the workflow and its placement within your Jekyll project.
 ## tutorial 
 [
 ](https://jekyllrb.com/tutorials/home/#:~:text=To%20add%20your%20tutorial%3A%201%20Fork%20the%20Jekyll,regular%20git%20workflow%20to%20submit%20the%20pull%20request)https://jekyllrb.com/tutorials/home/#:~:text=To%20add%20your%20tutorial%3A%201%20Fork%20the%20Jekyll,regular%20git%20workflow%20to%20submit%20the%20pull%20request
+
+
+
+## Raydo's contribution:
+To integrate the Jekyll site deployment workflow with the content structure you've outlined, you need to ensure the workflow is aware of and properly configured to work with the specific files and directories in your repository, such as `LETS-INNOVATE-TOGETHER.md`, `README.md`, `.github/workflows`, and others. Here's an enhanced version of your workflow configuration:
+
+```yaml
+name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "**/*.md"  # Trigger build on changes to any Markdown files
+      - "_config.yml"
+      - "_layouts/**"
+      - "_posts/**"
+      - "_site/**"
+      - ".github/workflows/**"  # Include workflow directory to trigger rebuilds on workflow changes
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+### Key Points:
+
+- **Paths Trigger**: The workflow includes a `paths` trigger to ensure the build and deployment process is initiated whenever there are changes to Markdown files (including `LETS-INNOVATE-TOGETHER.md` and `README.md`), Jekyll configuration files, layout templates, blog posts, site content, or the workflow files themselves. This ensures that any significant change in your repository content triggers a rebuild and redeploy of your Jekyll site.
+
+- **Workflow Dispatch**: This option remains enabled, allowing manual triggers of the workflow from the GitHub Actions tab, providing flexibility for ad-hoc builds and deployments.
+
+- **Jobs and Steps**: The workflow is divided into two primary jobs: `build` and `deploy`. The `build` job checks out the repository, sets up GitHub Pages, builds the Jekyll site, and uploads the build artifact. The `deploy` job then takes this artifact and deploys it to GitHub Pages.
+
+- **Environment URL**: The `deploy` job includes an environment named `github-pages`, with the deployment URL accessible through the `steps.deployment.outputs.page_url` expression, providing a direct link to the deployed site after successful deployment.
+
+By adjusting the workflow to be aware of and responsive to changes in all relevant content within your repository, you ensure that your GitHub Pages site remains up-to-date with the latest modifications to your curriculum proposals, documentation, and other critical files.
