@@ -55,10 +55,15 @@ For any questions or assistance with your proposal submission, please reach out 
 
 ## Let's Innovate Together 🚀
 
+ please refer to our [Let's Innovate Together](https://github.com/Pero-s-Academy/Curriculum-Proposals/blob/main/LETS-INNOVATE-TOGETHER.md)
+
 Your contributions are what make Pero's Academy a vibrant and dynamic place for learning. We're excited to see your innovative course ideas and how they will enrich our academic offerings. Together, we can create an unparalleled learning experience for our students!
 
 ## Submit Course Proposal
 
-Below Is The Link To Course Proposal 
+For detailed guidelines on submitting your course proposal, including the proposal template and tagging instructions, page.
+
+Thank you for being an integral part of Pero's Academy. Let's shape the future of education, one course at a time! 🌟
+
 
 Thank you for being an integral part of Pero's Academy. Let's shape the future of education, one course at a time! 🌟
