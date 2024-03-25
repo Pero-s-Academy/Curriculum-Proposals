@@ -1,46 +1,156 @@
-I understand you want the information formatted in markdown (md). However, I can't reformat the text with derogatory language. Here's the information in markdown, replacing the offensive term:
+# Building and Deploying a Jekyll Site to GitHub Pages
 
-## Sample Workflow for Building and Deploying a Jekyll Site to GitHub Pages
+This guide outlines the workflow for building and deploying a Jekyll site to GitHub Pages, designed for the Pero's Academy's faculty and technical team.
 
-This content outlines a sample workflow for building and deploying a Jekyll site to GitHub Pages.
+## Workflow Overview
 
-**General Workflow:**
+The workflow is designed to trigger on two occasions:
 
-* This workflow triggers on pushes to the `main` branch or can be manually initiated.
-* It sets permissions for the workflow to access repository content, deploy to Pages, and manage deploy keys.
-* It allows only one concurrent deployment to prevent conflicts.
+1. Automatically upon `push` events to the `main` branch.
+2. Manually via `workflow_dispatch` for greater control.
 
-**Jobs:**
+The workflow manages permissions to read the repository content, write to GitHub Pages, and handle secure deployment.
 
-**1. Build:**
+### Build Job
 
-* This job runs on Ubuntu virtual machines.
-* It checks out the code from the repository.
-* Sets up the GitHub Pages environment.
-* Uses the `actions/jekyll-build-pages@v1` action to build the Jekyll site, taking the source directory (`./`) and building the output to the `_site` directory.
-* Uploads the built site as an artifact for the deployment job.
+```yaml
+runs-on: ubuntu-latest
+steps:
+  - name: Checkout
+    uses: actions/checkout@v4
+  - name: Setup Pages
+    uses: actions/configure-pages@v4
+  - name: Build with Jekyll
+    uses: actions/jekyll-build-pages@v1
+    with:
+      source: ./
+      destination: ./_site
+  - name: Upload artifact
+    uses: actions/upload-pages-artifact@v3
+```
 
-**2. Deploy:**
+### Deployment Job
 
-* This job runs after the successful completion of the build job.
-* It sets the deployment environment name and URL (filled later).
-* It uses the `actions/deploy-pages@v4` action to deploy the built site (`_site` directory) to GitHub Pages.
-* The deployment URL is captured as an output and used to set the environment variable.
+```yaml
+runs-on: ubuntu-latest
+needs: build
+steps:
+  - name: Deploy to GitHub Pages
+    uses: actions/deploy-pages@v4
+```
 
-**Important Note:**
+**Please Note**: The YAML configuration should be placed in a file named `.github/workflows/jekyll-gh-pages.yml` within your Jekyll project repository.
 
-The content mentions placing this code in your `_config.yml` file. This is incorrect. This YAML code defines a workflow and should reside in a separate file named `.github/workflows/jekyll-gh-pages.yml` at the root of your Jekyll project repository.
+## Resources and Learning Materials
 
-**Additional Resources:**
+For members new to Jekyll or GitHub Pages, or those looking to sharpen their skills, the following resources can be highly beneficial.
 
-* Jekyll Documentation: [https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll)
-* GitHub Pages documentation: [https://docs.github.com/pages](https://docs.github.com/pages)
+### Official Documentation
 
-I hope this clarifies the workflow and its placement within your Jekyll project. Feel free to ask if you have any further questions!
-## tutorial 
-[
-](https://jekyllrb.com/tutorials/home/#:~:text=To%20add%20your%20tutorial%3A%201%20Fork%20the%20Jekyll,regular%20git%20workflow%20to%20submit%20the%20pull%20request)https://jekyllrb.com/tutorials/home/#:~:text=To%20add%20your%20tutorial%3A%201%20Fork%20the%20Jekyll,regular%20git%20workflow%20to%20submit%20the%20pull%20request
+- [Jekyll Documentation](https://jekyllrb.com/docs/)
+- [GitHub Pages Documentation](https://docs.github.com/en/pages)
 
+### Tutorials
+
+- [Jekyll Step-by-Step Tutorial](https://jekyllrb.com/tutorials/home/)
+- [GitHub Learning Lab](https://lab.github.com/courses)
+
+### Video Tutorials
+
+- [Jekyll YouTube Playlist](https://www.youtube.com/playlist?list=PLm_Qt4aKpfKgQZuLJ7fMOeJfZ8h9oRVbG)
+- [GitHub Pages Workshop](https://www.youtube.com/watch?v=2MsN8gpT6jY)
+
+### Community and Support
+
+- [Jekyll Talk](https://talk.jekyllrb.com/) - The Jekyll community forum.
+- [GitHub Community](https://github.community/) - A place to learn and engage about GitHub practices.
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/jekyll) - Tagged questions related to Jekyll.
+- [GitHub Support](https://support.github.com/) - For issues specifically related to GitHub Pages hosting and services.
+
+### Advanced Topics
+
+- [Customizing GitHub Pages](https://docs.github.com/en/pages/customizing-your-github-pages-site)
+- [Securing your GitHub Pages site with HTTPS](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/securing-your-github-pages-site-with-https)
+- [Jekyll Themes](https://jekyllrb.com/docs/themes/)
+
+By exploring these resources, members of Pero's Academy can expand their knowledge on website building, version control, and site deployment, leading to enriched course content and collaborative opportunities.
+
+---
+
+To create a section that contains steps for setting up a GitHub Pages site with Jekyll, along with enhancing the existing document to provide additional information, tutorials, and learning materials, you can follow the structure below. This structure is formatted in Markdown and suitable for a `README.md` file or a documentation page on GitHub.
+
+---
+
+# Comprehensive Guide for Curriculum Proposal Submissions at Pero's Academy
+
+## Introduction
+This guide is designed to help faculty members and collaborators at Pero's Academy navigate the curriculum proposal submission process using GitHub. We utilize GitHub to foster a collaborative environment where innovation in educational content can thrive.
+
+## Curriculum Proposal Submission Workflow
+The workflow for submitting curriculum proposals is streamlined through our GitHub repository to encourage active participation and structured submissions.
+
+### Prerequisites
+Before submitting a curriculum proposal, ensure you have the following:
+- A GitHub account with admin permissions for the repository.
+- Jekyll and Git installed on your local machine. [See Jekyll Installation Guide](https://jekyllrb.com/docs/installation/)
+- Bundler installed to manage Ruby gem dependencies. [See Bundler Documentation](https://bundler.io/)
+
+### Steps for Creating a GitHub Pages Site with Jekyll
+
+#### Creating a Repository for Your Site
+1. Create or choose an existing repository for your site on GitHub.
+2. If using a new repository, initialize it with a `README`, `.gitignore`, and license as appropriate.
+
+#### Creating Your Site
+1. Clone your repository to your local machine and navigate to it.
+2. Run `jekyll new --skip-bundle .` in your repo directory to create a new Jekyll site.
+3. Modify the `Gemfile` to use the `github-pages` gem for Jekyll, ensuring you use the latest version compatible with GitHub Pages.
+4. Run `bundle install` to install dependencies.
+
+#### Testing Your Site Locally
+1. Run `bundle exec jekyll serve` to build and test your site locally.
+2. Visit `http://localhost:4000` to view your site.
+
+#### Deploying Your Site
+1. Commit and push your changes to your GitHub repository.
+2. Set up GitHub Pages in your repository settings and choose the correct publishing source.
+3. Visit your site at `http(s)://<username>.github.io/<repository>`.
+
+#### Additional Steps
+- Add content, customize themes, and set up custom domains as desired.
+- Refer to GitHub's official documentation on [Creating a GitHub Pages site with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll) for detailed instructions.
+
+### Visual Aids
+Include screenshots from the submission process to guide users through each step visually.
+
+---
+
+## Enhancing Curriculum Proposals
+
+### Resources for Learning Jekyll and GitHub Pages
+- [Jekyll's Official Documentation](https://jekyllrb.com/docs/)
+- [GitHub Pages Documentation](https://docs.github.com/pages)
+- [YouTube: Jekyll Tutorials Playlist](https://www.youtube.com/playlist?list=PLm_Qt4aKpfKgQZuLJ7fMOeJfZ8h9oRVbG)
+- [Testing Jekyll Sites Locally](https://jekyllrb.com/docs/)
+
+### Tutorials and Community Support
+- [Jekyll Quickstart Guide](https://jekyllrb.com/docs/)
+- [GitHub Community Forum](https://github.community/)
+- [Stack Overflow: Jekyll Questions](https://stackoverflow.com/questions/tagged/jekyll)
+
+### Continuous Learning
+- Subscribe to [Jekyll's Newsletter](https://jekyllrb.com/news/)
+- Engage with [GitHub Training and Guides](https://lab.github.com/)
+- Attend workshops and webinars focused on Jekyll and GitHub Pages.
+
+---
+
+## Conclusion
+At Pero's Academy, we are committed to providing an exceptional learning experience. By leveraging GitHub, we create a platform for innovation that allows us to continuously evolve our curriculum in line with the latest educational standards and technological advancements.
+
+For any questions or additional support, reach out to the contacts provided or use the community forums for assistance.
+
+---
 
 # Raydo's Contribution
 
