@@ -42,74 +42,80 @@ I hope this clarifies the workflow and its placement within your Jekyll project.
 ](https://jekyllrb.com/tutorials/home/#:~:text=To%20add%20your%20tutorial%3A%201%20Fork%20the%20Jekyll,regular%20git%20workflow%20to%20submit%20the%20pull%20request)https://jekyllrb.com/tutorials/home/#:~:text=To%20add%20your%20tutorial%3A%201%20Fork%20the%20Jekyll,regular%20git%20workflow%20to%20submit%20the%20pull%20request
 
 
+# Raydo's Contribution
 
-## Raydo's contribution:
-To integrate the Jekyll site deployment workflow with the content structure you've outlined, you need to ensure the workflow is aware of and properly configured to work with the specific files and directories in your repository, such as `LETS-INNOVATE-TOGETHER.md`, `README.md`, `.github/workflows`, and others. Here's an enhanced version of your workflow configuration:
+Creating a comprehensive documentation that integrates the provided screenshots and thoroughly explains the concept and process of curriculum proposal submissions at Pero's Academy involves several steps. Since I can't directly use or display the screenshots, I'll guide you on where to place them in your documentation.
 
-```yaml
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+## Title: Curriculum Proposal Submission Guide for Pero's Academy
 
-on:
-  push:
-    branches: ["main"]
-    paths:
-      - "**/*.md"  # Trigger build on changes to any Markdown files
-      - "_config.yml"
-      - "_layouts/**"
-      - "_posts/**"
-      - "_site/**"
-      - ".github/workflows/**"  # Include workflow directory to trigger rebuilds on workflow changes
+---
 
-  workflow_dispatch:
+## Introduction
+This guide is crafted for the faculty members at Pero's Academy, detailing the process for submitting innovative curriculum proposals through our GitHub repository. The process fosters collaboration, transparency, and organization, ensuring that every proposal is thoroughly reviewed and considered.
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+## GitHub Repository and Project Boards
+Our GitHub repository serves as the central hub for all curriculum-related activities. Here, faculty members can submit proposals, track progress, and collaborate on course development.
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+### Using the GitHub Project Boards
+The GitHub Project Boards allow us to visualize and manage the workflow of curriculum development.
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+![projects](https://github.com/Pero-s-Academy/Curriculum-Proposals/assets/126121348/b793e174-8833-417c-8808-daff7db29277)
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+### Viewing Open Curriculum Proposals
+Faculty can view open proposals within the GitHub Project Boards, offering an overview of ongoing work.
 
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
+![protects example](https://github.com/Pero-s-Academy/Curriculum-Proposals/assets/126121348/bae8749f-3879-4a8b-826d-7383fb6ea09a)
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+## Curriculum Proposal Process
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-```
+### Step 1: Accessing the Submission Template
+To maintain a standard for submissions, we use a predefined template.
 
-### Key Points:
+![issue template](https://github.com/Pero-s-Academy/Curriculum-Proposals/assets/126121348/4ff7d73e-6fa3-4a1c-ba72-6e926281e08d)
 
-- **Paths Trigger**: The workflow includes a `paths` trigger to ensure the build and deployment process is initiated whenever there are changes to Markdown files (including `LETS-INNOVATE-TOGETHER.md` and `README.md`), Jekyll configuration files, layout templates, blog posts, site content, or the workflow files themselves. This ensures that any significant change in your repository content triggers a rebuild and redeploy of your Jekyll site.
 
-- **Workflow Dispatch**: This option remains enabled, allowing manual triggers of the workflow from the GitHub Actions tab, providing flexibility for ad-hoc builds and deployments.
+### Step 2: Submitting a New Course Proposal
+Faculty members can start a new course proposal by creating a new issue in the GitHub repository.
 
-- **Jobs and Steps**: The workflow is divided into two primary jobs: `build` and `deploy`. The `build` job checks out the repository, sets up GitHub Pages, builds the Jekyll site, and uploads the build artifact. The `deploy` job then takes this artifact and deploys it to GitHub Pages.
+1. Navigate to the **Issues** tab in the repository.
+2. Click on **New Issue**.
+3. Fill out the provided **Curriculum Proposal Template** with the necessary details of your course.
 
-- **Environment URL**: The `deploy` job includes an environment named `github-pages`, with the deployment URL accessible through the `steps.deployment.outputs.page_url` expression, providing a direct link to the deployed site after successful deployment.
+![issues](https://github.com/Pero-s-Academy/Curriculum-Proposals/assets/126121348/a6b88db8-cdad-4983-82e1-150b7e6a6b78)
 
-By adjusting the workflow to be aware of and responsive to changes in all relevant content within your repository, you ensure that your GitHub Pages site remains up-to-date with the latest modifications to your curriculum proposals, documentation, and other critical files.
+
+## Completing the Proposal Template
+The template ensures all proposals include essential information, facilitating an efficient review process.
+
+**Fields to complete**:
+- Course Title
+- Course Description
+- Learning Objectives
+- Target Audience
+- Syllabus Outline
+- Assessment Methods
+- Tools & Resources
+
+### Tagging Your Submission
+Utilize the appropriate tags to help categorize your proposal. This aids in the sorting and prioritization process.
+
+**Tags include**:
+- `New-Course-Proposal`
+- `Course-Update`
+- `Urgent`
+- `Technology-Focused`
+- `Skill-Development`
+
+## Review and Collaboration
+Once submitted, proposals enter the review stage. Here, faculty members and the curriculum development team can collaborate, offering feedback and suggestions.
+
+**Key points**:
+- Constructive feedback and discussions are encouraged on each issue.
+- Proposals can be refined and updated based on the collaborative input.
+
+## Conclusion
+Submitting a curriculum proposal is a significant step toward contributing to the educational journey of our students at Pero's Academy. Our structured approach on GitHub streamlines the process and ensures that each proposal receives the attention it deserves.
+
+---
+
+This guide outlines the workflow for curriculum proposal submissions at Pero's Academy, integrating a visual component with screenshots for clarity. Faculty members are encouraged to reference this guide throughout the submission process to ensure their proposals are complete and align with the Academy's standards for educational excellence.
