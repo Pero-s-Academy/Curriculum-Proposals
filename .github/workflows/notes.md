@@ -2,6 +2,9 @@
 
 This guide outlines the workflow for building and deploying a Jekyll site to GitHub Pages, designed for the Pero's Academy's faculty and technical team.
 
+![Setting up a GitHub Pages site with Jekyll](https://github.com/Pero-s-Academy/Curriculum-Proposals/assets/126121348/70570770-1152-4fba-8821-0cbe1fafd651)
+
+
 ## Workflow Overview
 
 The workflow is designed to trigger on two occasions:
@@ -10,6 +13,9 @@ The workflow is designed to trigger on two occasions:
 2. Manually via `workflow_dispatch` for greater control.
 
 The workflow manages permissions to read the repository content, write to GitHub Pages, and handle secure deployment.
+
+![actions-workflow runs](https://github.com/Pero-s-Academy/Curriculum-Proposals/assets/126121348/6bcc8141-6e8b-4026-aea9-2b54a71f7bf7)
+
 
 ### Build Job
 
@@ -116,6 +122,8 @@ Before submitting a curriculum proposal, ensure you have the following:
 2. Set up GitHub Pages in your repository settings and choose the correct publishing source.
 3. Visit your site at `http(s)://<username>.github.io/<repository>`.
 
+![Setting up a GitHub Pages site with Jekyll](https://github.com/Pero-s-Academy/Curriculum-Proposals/assets/126121348/343e6ab9-6603-4f3c-9132-553e6d119a74)
+
 #### Additional Steps
 - Add content, customize themes, and set up custom domains as desired.
 - Refer to GitHub's official documentation on [Creating a GitHub Pages site with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll) for detailed instructions.
@@ -205,6 +213,8 @@ The template ensures all proposals include essential information, facilitating a
 - Syllabus Outline
 - Assessment Methods
 - Tools & Resources
+  
+![issue template](https://github.com/Pero-s-Academy/Curriculum-Proposals/assets/126121348/33f9456a-3eb2-474f-88a7-ddcdc35b8fe0)
 
 ### Tagging Your Submission
 Utilize the appropriate tags to help categorize your proposal. This aids in the sorting and prioritization process.
