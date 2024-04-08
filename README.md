@@ -16,9 +16,9 @@ To submit your curriculum proposal, follow these steps or simply scan the QR cod
 
 Or you can use the direct link to the MS Forms: [Curriculum Proposal Form](https://forms.office.com/r/T67U9bZvCz)
 
-```html
+
 <iframe width="640px" height="480px" src="https://forms.office.com/r/T67U9bZvCz?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>
-```
+
 
 ## Embedding the Form in Your Website
 
