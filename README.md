@@ -34,10 +34,3 @@ Your inventive course ideas are the cornerstone of our educational offerings. Wi
 
 Ready to make an impact? Access the [Curriculum Proposal Form](https://forms.office.com/r/T67U9bZvCz) and submit your ideas today!
 
-```
-
-In this content:
-
-- You'll need to replace "path-to-qr-code-image" with the actual file path where the QR code image is stored.
-- The iframe is provided to be embedded into a website, but remember that GitHub's markdown rendering does not support iframe embedding directly in the README.md file.
-- The direct link to the MS Forms is included for users who cannot scan the QR code.
