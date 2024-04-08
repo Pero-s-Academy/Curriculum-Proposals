@@ -1,3 +1,6 @@
+It seems you want to incorporate a QR code and an MS Forms link into your content. You can enhance the "Welcome to Pero's Academy Curriculum Portal" README.md with the following Markdown, which includes the form link and instructions for using the QR code:
+
+```markdown
 # Welcome to Pero's Academy Curriculum Portal 🎓
 
 ![Curriculum Proposal Form](path-to-qr-code-image) *Scan this QR code to access the Curriculum Proposal Form directly.*
@@ -18,9 +21,26 @@ Or you can use the direct link to the MS Forms: [Curriculum Proposal Form](https
 
 ```html
 <iframe width="640px" height="480px" src="https://forms.office.com/r/T67U9bZvCz?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>
+```
 
+## Embedding the Form in Your Website
 
-Thank you for being an integral part of Pero's Academy. Let's shape the future of education, one course at a time! 🌟
+If you want to embed the Curriculum Proposal Form directly into a webpage, use the provided HTML iframe snippet. It ensures the form is displayed fully within the confines of your site, offering a seamless experience for faculty members.
 
+Please note that embedding external content with an iframe may not work directly on all platforms, including GitHub markdown viewers, due to security restrictions that prevent such embeds.
 
-Thank you for being an integral part of Pero's Academy. Let's shape the future of education, one course at a time! 🌟
+## Let's Innovate Together 🚀
+
+Your inventive course ideas are the cornerstone of our educational offerings. With your contribution, Pero's Academy will continue to be a beacon of advanced learning and innovation.
+
+## Submit Your Course Proposal Now
+
+Ready to make an impact? Access the [Curriculum Proposal Form](https://forms.office.com/r/T67U9bZvCz) and submit your ideas today!
+
+```
+
+In this content:
+
+- You'll need to replace "path-to-qr-code-image" with the actual file path where the QR code image is stored.
+- The iframe is provided to be embedded into a website, but remember that GitHub's markdown rendering does not support iframe embedding directly in the README.md file.
+- The direct link to the MS Forms is included for users who cannot scan the QR code.
