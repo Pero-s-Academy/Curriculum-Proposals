@@ -1,6 +1,5 @@
 Certainly! Tailoring the `.md` file specifically for course curriculum proposals and development within a collaborative innovation framework, and naming it `LETS-INNOVATE-TOGETHER.md`:
 
-```markdown
 # Let's Innovate Together: Course Curriculum Proposals 🎓
 
 Welcome to our dynamic platform for academic innovation and curriculum development. This Markdown document, `LETS-INNOVATE-TOGETHER.md`, serves as a central hub for faculty members, educators, and contributors to propose, discuss, and collaboratively refine course curricula. Together, we aim to craft educational experiences that are both impactful and aligned with the future of learning.
